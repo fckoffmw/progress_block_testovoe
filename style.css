@@ -13,3 +13,25 @@ body {
   align-items: center;
   gap: 16px;
 }
+
+.progress-ring {
+  display: block;
+  width: 120px;
+  height: 120px;
+}
+
+.progress-track {
+  fill: none;
+  stroke: #eef3f6;
+  stroke-width: 6;
+}
+
+.progress-value {
+  fill: none;
+  stroke: #005bff;
+  stroke-width: 6;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 40;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
