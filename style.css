@@ -2,3 +2,14 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
