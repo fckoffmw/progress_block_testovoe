@@ -1,32 +1,51 @@
 const valueInput = document.querySelector('#value');
-const progressValue = document.querySelector('.progress-value');
 const hideInput = document.querySelector('#hide');
 const progress = document.querySelector('.progress');
 const animateInput = document.querySelector('#animate')
-const progressRing = document.querySelector('.progress-ring')
+
+function createProgress(root) {
+  const progressValue = root.querySelector('.progress-value');
+  const progressRing = root.querySelector('.progress-ring')
+
+  function setValue(enteredValue) {
+    const value = Math.max(0, Math.min(100, enteredValue));
+    const offset = 100 - value;
+
+    if (value === 0) {
+      progressValue.style.strokeDasharray = '0 100';
+    } else if (value === 100) {
+      progressValue.style.strokeDasharray = 'none';
+    } else {
+      progressValue.style.strokeDasharray = '100 100';
+    }
+
+    progressValue.style.strokeDashoffset = offset;
+  }
+
+  function setHidden(isHidden) {
+    root.hidden = isHidden;
+  }
+
+  function setAnimated(isAnimated) {
+    progressRing.classList.toggle('is-animated', isAnimated);
+  }
+
+  return { setValue, setHidden, setAnimated };
+}
+
+const indicator = createProgress(progress)
 
 function updateProgress() {
   const enteredValue = Number(valueInput.value);
-  const value = Math.max(0, Math.min(100, enteredValue));
-  const offset = 100 - value;
-
-  if (value === 0) {
-    progressValue.style.strokeDasharray = '0 100';
-  } else if (value === 100) {
-    progressValue.style.strokeDasharray = 'none';
-  } else {
-    progressValue.style.strokeDasharray = '100 100';
-  }
-
-  progressValue.style.strokeDashoffset = offset;
+  indicator.setValue(enteredValue);
 }
 
 function updateHidden() {
-  progress.hidden = hideInput.checked;
+  indicator.setHidden(hideInput.checked)
 }
 
 function updateAnimated() {
-  progressRing.classList.toggle('is-animated', animateInput.checked);
+  indicator.setAnimated(animateInput.checked)
 }
 
 valueInput.addEventListener('input', updateProgress);
