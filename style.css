@@ -35,3 +35,17 @@ body {
   transform: rotate(-90deg);
   transform-origin: center;
 }
+
+.progress-ring.is-animated {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
