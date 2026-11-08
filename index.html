@@ -12,35 +12,37 @@
 <body>
     <main>
         <h1>Progress</h1>
-        <div class="progress">
-            <svg class="progress-ring" viewBox="0 0 120 120">
-                <circle
-                    class="progress-track"
-                    cx="60"
-                    cy="60"
-                    r="54"
-                ></circle>
-                <circle
-                    class="progress-value"
-                    cx="60"
-                    cy="60"
-                    r="54"
-                    pathLength="100"
-                ></circle>
-            </svg>
-        </div>
-        <div class="controls">
-            <div class="control">
-                <input type="number" id="value" min="0" max="100" value="60">
-                <label for="value">Value</label>
+        <div class="layout">
+            <div class="progress">
+                <svg class="progress-ring" viewBox="0 0 120 120">
+                    <circle
+                        class="progress-track"
+                        cx="60"
+                        cy="60"
+                        r="54"
+                    ></circle>
+                    <circle
+                        class="progress-value"
+                        cx="60"
+                        cy="60"
+                        r="54"
+                        pathLength="100"
+                    ></circle>
+                </svg>
             </div>
-            <div class="control">
-                <input type="checkbox" id="animate">
-                <label for="animate">Animate</label>
-            </div>
-            <div class="control">
-                <input type="checkbox" id="hide">
-                <label for="hide">Hide</label>
+            <div class="controls">
+                <div class="control">
+                    <input type="number" id="value" min="0" max="100" value="60">
+                    <label for="value">Value</label>
+                </div>
+                <div class="control">
+                    <input type="checkbox" id="animate">
+                    <label for="animate">Animate</label>
+                </div>
+                <div class="control">
+                    <input type="checkbox" id="hide">
+                    <label for="hide">Hide</label>
+                </div>
             </div>
         </div>
     </main>
